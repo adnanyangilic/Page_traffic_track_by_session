@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+<h1>@ViewBag.Greetingmessage</h1>
+
+<h1>Previous page:   @ViewBag.Nameofpreviouspage</h1>
+<h1 class="display-4">Coming from page @ViewBag.Comingfrompage</h1>
+<p>Use this page to detail your site's privacy policy.</p>
+@section Scripts{
+
+
+
+    <script>
+        window.addEventListener('load', (event) => {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/Home/Changecomingfrompageinfo', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onload = function () {
+                // do something to response
+                console.log(this.responseText);
+            };
+            xhr.send('jumpedfrompagename=privacy');
+        });
+
+    </script>
+
+
+}
